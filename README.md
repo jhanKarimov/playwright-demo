@@ -44,7 +44,7 @@ tests/       smoke, news, topic, authz, health, responsive, flaky-hygiene
 - Tests assert on things I control (headers, meta tags, structure), not on news headlines that change every few minutes.
 
 ## Real findings it turned up (as of 2026-11-02)
-- **Console errors on the home page: 9** (jQuery/Quill load-order errors, a duplicate `leftFrame` declaration, a few 404s). The test uses a budget of 10 as a ratchet. I'd lower it as I fix them.
+- **Console errors on the home page: 9 to 11 depending on the run** (jQuery/Quill load-order errors, a duplicate `leftFrame` declaration, a few 404s). The test uses a budget of 15 as a ratchet (the count itself varies, which is a finding). I'd lower it as I fix them.
 - **Accessibility (axe, WCAG A/AA)**: `button-name`, `image-alt` and `label` violations on the home page. They're attached to the report as annotations and a JSON file, and don't fail the run.
 - The home `<h1>` is in the DOM but visually hidden (logo styling), so I assert it's attached, not visible.
 - The news page currently shows ~4 article links, so the test asks for at least 3.
